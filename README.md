@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OCT Image Reconstruction using Variational Autoencoder (VAE)
 
 This project implements a Variational Autoencoder (VAE) for grayscale OCT image reconstruction using PyTorch.
@@ -158,3 +159,26 @@ vae_outputs/
 ## Author
 
 Student project – OCT VAE pipeline
+=======
+# OCT Macular Super-Resolution
+
+This project applies deep learning techniques to enhance the resolution of macular OCT retinal images.
+
+## Objective
+To improve visualization of the posterior segment (retina) using super-resolution methods for medical imaging.
+
+## Methods Tried
+- GAN-based super-resolution (ex: SRGAN, ESRGAN)
+- Diffusion-based methods (planned or optional)
+
+## Dataset
+Heidelberg Spectralis OCT dataset (Posterior Segment - Retina)
+
+## Tools and Frameworks
+- Python
+- PyTorch
+- OpenCV
+
+## Expected Outcome
+Higher resolution macular OCT images suitable for clinical or research analysis.
+>>>>>>> 7d8e9ae5c5c70d9531c5f2be4878f54a5d948b60
