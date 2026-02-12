@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # OCT Image Reconstruction using Variational Autoencoder (VAE)
 
 This project implements a Variational Autoencoder (VAE) for grayscale OCT image reconstruction using PyTorch.
@@ -14,7 +13,7 @@ The entire pipeline runs locally and includes:
 - reconstruction preview
 - evaluation
 
-No Kaggle or Colab required.
+No Kaggle or Colab required. Everything runs offline.
 
 ---
 
@@ -48,7 +47,7 @@ project/
 │
 ├── vae_outputs/           # training outputs
 │   ├── previews/
-│   └── checkpoints
+│   └── checkpoints/
 │
 ├── notebook.ipynb
 ├── requirements.txt
@@ -65,11 +64,13 @@ Recommended:
 Python 3.10 or 3.11
 ```
 
-Do NOT use Python 3.12 yet.
+Python 3.12 is not recommended yet due to PyTorch compatibility.
 
 ---
 
-## Installation (CPU version)
+## Installation
+
+### CPU version (works on any laptop)
 
 ```
 pip install torch==2.2.2 torchvision==0.17.2 --index-url https://download.pytorch.org/whl/cpu
@@ -78,11 +79,18 @@ pip install -r requirements.txt
 
 ---
 
-## Installation (GPU version – CUDA 12)
+### GPU version (CUDA 12.1, NVIDIA GPU)
 
 ```
 pip install torch==2.2.2 torchvision==0.17.2 --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt
+```
+
+Verify GPU:
+
+```python
+import torch
+print(torch.cuda.is_available())
 ```
 
 ---
@@ -96,27 +104,28 @@ raw_png/
 ```
 
 2. Run preprocessing section  
-→ creates `processed_png`
+   → creates `processed_png`
 
 3. Run dataset split  
-→ creates `dataset/train/val/test`
+   → creates `dataset/train/val/test`
 
 4. Run training section  
-→ saves model in `vae_outputs`
+   → saves model in `vae_outputs`
 
 5. Run test section  
-→ shows reconstruction results
+   → shows reconstruction results
 
 ---
 
 ## Model Details
 
-- Input size: 512 × 512 grayscale
-- Latent channels: 8
+- Input size: **512 × 512 grayscale**
+- Latent channels: **8**
 - Symmetric encoder-decoder architecture
-- Loss: L1 + KL divergence
+- Loss: **L1 + KL divergence**
 - Mixed precision supported on GPU
 - Resume training supported
+- Deterministic validation pipeline
 
 ---
 
@@ -147,12 +156,27 @@ vae_outputs/
 
 ---
 
+## Features
+
+- Fully local pipeline (no cloud dependency)
+- Notebook-safe paths
+- Resume training after crash
+- Mixed precision acceleration
+- Portable project structure
+- Stable library versions
+
+---
+
 ## Notes
 
-- No cloud dependency
-- Notebook-safe paths
-- Portable project
-- Stable library versions
+This project is designed for:
+
+- medical image reconstruction experiments
+- VAE research
+- diffusion model pretraining
+- academic projects
+
+The pipeline is reproducible and experiment-safe.
 
 ---
 
